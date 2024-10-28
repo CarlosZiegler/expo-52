@@ -7,11 +7,18 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import DOMComponent from "@/components/my-component";
+import { ActionSheetProvider } from "@expo/react-native-action-sheet";
+import TaskList from "@/components/task-dashboard/task-list";
 
 export default function TabTwoScreen() {
   const handleClick = (message: string) => {
     console.log(message);
   };
+  return (
+    <ActionSheetProvider>
+      <TaskList />
+    </ActionSheetProvider>
+  );
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
@@ -25,7 +32,7 @@ export default function TabTwoScreen() {
       }
     >
       <ThemedView style={styles.titleContainer}>
-        <DOMComponent name="World" onClick={handleClick} />
+        {/* <DOMComponent name="World" onClick={handleClick} /> */}
         <ThemedText type="title">Explore</ThemedText>
       </ThemedView>
       <ThemedText>
